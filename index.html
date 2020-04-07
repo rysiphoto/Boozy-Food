@@ -2,56 +2,99 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-  <!-- <link rel="stylesheet" href="debug.css"> -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+  <script  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <div class="hero">
+        <p class="center">
+            Placeholder
+        </p>
+    </div>
 
-  <div class="hero">
-    <p class="center">
-      Placeholder
-    </p>
-  </div>
-
-  <section class="section is-paddingless-horizontal">
-    <div class="tile is-ancestor">
-      <div class="tile is-vertical is-8">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-primary">
-              <p class="title">Vertical...</p>
-              <p class="subtitle">Top tile</p>
-            </article>
-            <article class="tile is-child notification is-warning">
-              <p class="title">Random Drink Button</p>
+    <section class="section is-paddingless-horizontal">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-8">
+              <div class="tile">
+                <div class="tile is-parent is-vertical">
+                  <article class="tile is-child notification is-primary">
+                    <p class="title">Generate a Recipe Based on an Ingredient you have at home!</p>
+                    <p>
+                      <input id="searchBar" class="input is-rounded" type="text" placeholder="Ingredient here">
+                    </p>
+                    <p id="recipeHere"> </p>
+                    <br>
+                    <p class="subtitle">
+                      <button type="button" class="recipe-btn">Generate Recipe</button>
+                    </p>
+                  </article>
+                  <article class="tile is-child notification is-warning">
+                     <p class="title">Random Drink Button</p>
               <p class="subtitle">Click to create your concoction</p>
               <p class="randDrinkBtn">
                 <button id="randDrink" class="button is-primary" onclick="createDrinkDiv()">Random Drink!</button>
               </p>
-            </article>
+            
 
+                  </article>
+                </div>
+                <div class="tile is-parent">
+                  <article class="tile is-child notification is-info">
+                    <p class="title">Middle tile</p>
+                    <p class="subtitle">With an image</p>
+                    <figure class="image is-4by3">
+                      <img src="https://bulma.io/images/placeholders/640x480.png">
+                    </figure>
+                  </article>
+                  <div class="drinks is-child" id="drinksDiv">Test</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-success">
+                <div class="content">
+                            <!-- <p class="title">Tall tile</p>
+                            <p class="subtitle">With even more content</p> -->
+                  <div class="content">
+                    <figure class="image ">
+                      <<img src="images/cheers.png" style="width: 200px; height:200px;">
+                      <p>Baby Yoda Vodka</p>
+                    </figure>
+                   
+                    <!-- Content -->
+                  </div>
+                </div>
+                <div class="content">
+                  <figure class="image ">
+                    <img src="images/corona-beer.jpg" style="width: 200px; height:200px;">
+                    <p>Stay calm and enjoy a Corona beer</p>
+                  </figure>
+                 
+                  <!-- Content -->
+                </div>
+                <div class="content">
+                  <figure class="image ">
+                    <img src="images/You won't believe.png" style="width: 200px; height:200px;">
+                    <p> Number 20 is UNBELIEVABLE!</p>
+                  </figure>
+                  <!-- Content -->
+                </div>
+                
+              </div>
+              </article>
+              
+            </div>
           </div>
-          <div class="tile is-parent is-vertical" id="contentColumn">
-            <article class="tile is-child notification is-info">
-              <p class="title">Middle tile</p>
-              <p class="subtitle">With an image</p>
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/640x480.png">
-              </figure>
-            </article>
-            <div class="drinks is-child" id="drinksDiv">Test</div>
-
-          </div>
-
-
 
         </div>
 
