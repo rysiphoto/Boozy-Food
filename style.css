@@ -1,0 +1,9 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-paddingless-horizontal {
+     padding-left: 0; padding-right: 0; 
+    }
