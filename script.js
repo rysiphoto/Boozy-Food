@@ -1,22 +1,10 @@
 
-
 var searchDrink = "";
-
-// function createRandDrink() {
-//     var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-//     var drink = response.drinks[0];
-
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function (response) {
-
-//     });
-//     //append tile is-parent
-// }
 
 function createDrinkDiv() {
     $("#drinksDiv").empty();
+    $("#drinkPicDiv").empty();
+    $("#drinkDisc").empty();
     var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 
@@ -25,97 +13,137 @@ function createDrinkDiv() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        // var drinkInst = response.drinks[0].strInstructions;
-        // var drinkImg = response.drinks[0].strDrinkThumb
+        var drinkInst = response.drinks[0].strInstructions;
+        var drinkImg = response.drinks[0].strDrinkThumb
         var drinkGlass = response.drinks[0].strGlass;
         var drinkIng1 = response.drinks[0].strIngredient1;
         var drinkIng2 = response.drinks[0].strIngredient2;
-        // var drinkIng3 = response.drinks[0].strIngredient3;
-        // var drinkIng4 = response.drinks[0].strIngredient4;
-        // var drinkIng5 = response.drinks[0].strIngredient5;
-        // var drinkIng6 = response.drinks[0].strIngredient6;
-        // var drinkIng7 = response.drinks[0].strIngredient7;
+        var drinkIng3 = response.drinks[0].strIngredient3;
+        var drinkIng4 = response.drinks[0].strIngredient4;
+        var drinkIng5 = response.drinks[0].strIngredient5;
+        var drinkIng6 = response.drinks[0].strIngredient6;
+
         var drinkMeasure1 = response.drinks[0].strMeasure1;
         var drinkMeasure2 = response.drinks[0].strMeasure2;
-        // var drinkMeasure3 = response.drinks[0].strMeasure3;
-        // var drinkMeasure4 = response.drinks[0].strMeasure4;
-        // var drinkMeasure5 = response.drinks[0].strMeasure5;
-        // var drinkMeasure6 = response.drinks[0].strMeasure6;
-        // var drinkMeasure7 = response.drinks[0].strMeasure7;
-
-
+        var drinkMeasure3 = response.drinks[0].strMeasure3;
+        var drinkMeasure4 = response.drinks[0].strMeasure4;
+        var drinkMeasure5 = response.drinks[0].strMeasure5;
+        var drinkMeasure6 = response.drinks[0].strMeasure6;
 
         var currentDiv = document.getElementById("drinksDiv");
+        var drinkPicDiv = document.getElementById("drinkPicDiv")
         var drinkNameDiv = document.createElement("h2");
+        drinkNameDiv.id = "drinkNameh2";
         var drinkGlassDiv = document.createElement("h3");
-        var drinkIngList = document.createElement("li");
+        var drinkDis = document.getElementById("drinkDisc");
+
+        // var ingredientNum = 1;
+        // var ingredients = []; // array to push ingredients to once you pull them from the object; an array will be easier to work with in your code
+
+        // while (response.drinks[0]["strIngredient" + ingredientNum]) {
+        //     ingredients.push(response["strIngredient" + ingredientNum]);
+        //     ingredientNum++;
+        //     var drinkIngList = response.drinks[0].strIngredient + ingredientNum;
+
+        //     for (i = 0; i < ingredients.length; i++) {
+        //         drinkIngList[i] = document.createElement("li");
+        //         drinkIngList[i].textContent = (drinkIng[i] + ": " + drinkMeasure[i]);
+        //     }
+        // }
+
+        // console.log("final ingredients array:", ingredients);
+
+        // Create For Loops for Ingredients if possible
+        var drinkIngList1 = document.createElement("li");
+        var drinkIngList2 = document.createElement("li");
+        var drinkIngList3 = document.createElement("li");
+        var drinkIngList4 = document.createElement("li");
+        var drinkIngList5 = document.createElement("li");
+        var drinkIngList6 = document.createElement("li");
+        var drinkInstList = document.createElement("p");
+        var drinkImage = document.createElement("p");
+        drinkImage.id = "drinkPic";
+
+
         drinkNameDiv.textContent = response.drinks[0].strDrink;
-        drinkGlassDiv.textContent = drinkGlass;
-        drinkIngList.textContent = (drinkIng1, drinkMeasure1);
+        drinkGlassDiv.textContent = ("Glass: " + drinkGlass);
+        drinkIngList1.textContent = (drinkIng1 + ": " + drinkMeasure1);
+        drinkIngList2.textContent = (drinkIng2 + ": " + drinkMeasure2);
+        drinkIngList3.textContent = (drinkIng3 + ": " + drinkMeasure3);
+        drinkIngList4.textContent = (drinkIng4 + ": " + drinkMeasure4);
+        drinkIngList5.textContent = (drinkIng5 + ": " + drinkMeasure5);
+        drinkIngList6.textContent = (drinkIng6 + ": " + drinkMeasure6);
+        drinkInstList.textContent = drinkInst;
+        drinkImage.innerHTML = ("<img src='" + drinkImg + "'>");
         currentDiv.appendChild(drinkNameDiv);
         currentDiv.appendChild(drinkGlassDiv);
-        currentDiv.appendChild(drinkIngList);
+        currentDiv.appendChild(drinkIngList1);
+        currentDiv.appendChild(drinkIngList2);
+        currentDiv.appendChild(drinkIngList3);
+        currentDiv.appendChild(drinkIngList4);
+        currentDiv.appendChild(drinkIngList5);
+        currentDiv.appendChild(drinkIngList6);
+        drinkDis.appendChild(drinkInstList);
+        drinkPicDiv.appendChild(drinkImage);
 
     });
 }
 
+$(".recipe-btn").on("click", function () {
+    // var returnResultsNum = $("#exampleFormControlSelect1"); //on pause
+    var userSearchTerm = $("#searchBar").val();
 
-$(".recipe-btn").on("click", function(){
+    var rapidKey = '6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659'
+    var queryUrl = `https://api.spoonacular.com/food/products/search?query=${userSearchTerm}&apiKey=${rapidKey}`
+    $('#firstContent').empty()
+    $('#secondContent').empty()
+    $('#thirdContent').empty()
+    $('#fourthContent').empty()
+    $('#fithContent').empty()
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=${userSearchTerm}`,
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": "6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659"
+        }
+    }
+    $.ajax(settings).then(function (response) {
+        console.log(response);
+        // console.log(returnResultsNum);
 
-	// var returnResultsNum = $("#exampleFormControlSelect1"); //on pause
-	var userSearchTerm = $("#searchBar").val();
-	
-	var rapidKey = '6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659'
-	var queryUrl= `https://api.spoonacular.com/food/products/search?query=${userSearchTerm}&apiKey=${rapidKey}`
-	 $('#firstContent').empty()
-	 $('#secondContent').empty()
-	 $('#thirdContent').empty()
-	 $('#fourthContent').empty()
-	 $('#fithContent').empty()
-	var settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=${userSearchTerm}`,
-		"method": "GET",
-		"headers": {
-			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-			"x-rapidapi-key": "6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659"
-		}
-	}
-		$.ajax(settings).then(function(response){  
-			console.log(response);
-			// console.log(returnResultsNum);
-	
-			// var newDiv = $("<div>");
-			
-			// var title = $("<h1>").text(JSON.stringify(response.docs[0].abstract));
-			for(var i = 0;i<5;i++)
-			switch(i) {
-				case 0:
-					$( "#firstHeader" ).text(response[i].title)
-					$("#firstContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
-				  break;
-				case 1:
-					$( "#secondHeader" ).text(response[i].title)
-					$("#secondContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
-				  break;
-				case 2:
-					$( "#thirdHeader" ).text(response[i].title)
-					$("#thirdContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
-				  break;
-				case 3:
-					$( "#forthHeader" ).text(response[i].title)
-					$("#forthContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)	
-				break;
-				default:
-					$( "#fithHeader" ).text(response[i].title)
-					$("#fithContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
-				  // code block
-			  }
-			
-			//document.getElementById("recipeHere").innerHTML = response[0].title;
-		});
-		
-		
-	});
-	 $( "#accordion" ).accordion();
+        // var newDiv = $("<div>");
+
+        // var title = $("<h1>").text(JSON.stringify(response.docs[0].abstract));
+        for (var i = 0; i < 5; i++)
+            switch (i) {
+                case 0:
+                    $("#firstHeader").text(response[i].title)
+                    $("#firstContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+                    break;
+                case 1:
+                    $("#secondHeader").text(response[i].title)
+                    $("#secondContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+                    break;
+                case 2:
+                    $("#thirdHeader").text(response[i].title)
+                    $("#thirdContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+                    break;
+                case 3:
+                    $("#forthHeader").text(response[i].title)
+                    $("#forthContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+                    break;
+                default:
+                    $("#fithHeader").text(response[i].title)
+                    $("#fithContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+                // code block
+            }
+
+        //document.getElementById("recipeHere").innerHTML = response[0].title;
+    });
+
+
+});
+$("#accordion").accordion();
