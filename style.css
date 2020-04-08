@@ -11,7 +11,7 @@
 
     .button {
 
-        width: 120px;
+        width: 140px;
     }
 
     .randDrinkBtn {
@@ -20,3 +20,22 @@
         justify-content: center;
         align-items: center;
     }
+
+
+    .drinksDiv {
+        background-color: aqua;
+    }
+
+    #drinkPic {
+        height: 170px;
+        width: 170px;
+
+    }
+
+    .is-paddingless-top {
+        padding-top: 0px;
+    }
+#drinkNameh2 {
+    font-weight: bold;
+    font-size: 20px;
+}
