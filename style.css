@@ -22,6 +22,10 @@
         align-items: center;
     }
 
+#drinkDisc {
+    padding-top: 15px;
+}
+
 
     .drinksDiv {
         background-color: aqua;
@@ -30,6 +34,11 @@
     #drinkPic {
         height: 170px;
         width: 170px;
+
+    }
+
+    #drinkPicDiv {
+        padding-top: 15px;
 
     }
 

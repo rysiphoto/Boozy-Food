@@ -22,6 +22,8 @@ function createDrinkDiv() {
         var drinkIng4 = response.drinks[0].strIngredient4;
         var drinkIng5 = response.drinks[0].strIngredient5;
         var drinkIng6 = response.drinks[0].strIngredient6;
+        var drinkIng7 = response.drinks[0].strIngredient7;
+        var drinkIng8 = response.drinks[0].strIngredient8;
 
         var drinkMeasure1 = response.drinks[0].strMeasure1;
         var drinkMeasure2 = response.drinks[0].strMeasure2;
@@ -29,6 +31,8 @@ function createDrinkDiv() {
         var drinkMeasure4 = response.drinks[0].strMeasure4;
         var drinkMeasure5 = response.drinks[0].strMeasure5;
         var drinkMeasure6 = response.drinks[0].strMeasure6;
+        var drinkMeasure7 = response.drinks[0].strMeasure7;
+        var drinkMeasure8 = response.drinks[0].strMeasure8;
 
         var currentDiv = document.getElementById("drinksDiv");
         var drinkPicDiv = document.getElementById("drinkPicDiv")
@@ -41,30 +45,30 @@ function createDrinkDiv() {
         // var ingredients = []; // array to push ingredients to once you pull them from the object; an array will be easier to work with in your code
 
         // while (response.drinks[0]["strIngredient" + ingredientNum]) {
-        //     ingredients.push(response["strIngredient" + ingredientNum]);
+        //     ingredients.push(response.drinks[0]["strIngredient" + ingredientNum]);
         //     ingredientNum++;
-        //     var drinkIngList = response.drinks[0].strIngredient + ingredientNum;
 
-        //     for (i = 0; i < ingredients.length; i++) {
-        //         drinkIngList[i] = document.createElement("li");
-        //         drinkIngList[i].textContent = (drinkIng[i] + ": " + drinkMeasure[i]);
-        //     }
         // }
 
-        // console.log("final ingredients array:", ingredients);
 
         // Create For Loops for Ingredients if possible
+
         var drinkIngList1 = document.createElement("li");
         var drinkIngList2 = document.createElement("li");
         var drinkIngList3 = document.createElement("li");
         var drinkIngList4 = document.createElement("li");
         var drinkIngList5 = document.createElement("li");
         var drinkIngList6 = document.createElement("li");
+        var drinkIngList7 = document.createElement("li");
+        var drinkIngList8 = document.createElement("li");
         var drinkInstList = document.createElement("p");
         var drinkImage = document.createElement("p");
         drinkImage.id = "drinkPic";
 
 
+
+
+        // console.log("final ingredients array:", ingredients);
         drinkNameDiv.textContent = response.drinks[0].strDrink;
         drinkGlassDiv.textContent = ("Glass: " + drinkGlass);
         drinkIngList1.textContent = (drinkIng1 + ": " + drinkMeasure1);
@@ -73,8 +77,16 @@ function createDrinkDiv() {
         drinkIngList4.textContent = (drinkIng4 + ": " + drinkMeasure4);
         drinkIngList5.textContent = (drinkIng5 + ": " + drinkMeasure5);
         drinkIngList6.textContent = (drinkIng6 + ": " + drinkMeasure6);
+        drinkIngList7.textContent = (drinkIng7 + ": " + drinkMeasure7);
+        drinkIngList8.textContent = (drinkIng8 + ": " + drinkMeasure8);
         drinkInstList.textContent = drinkInst;
         drinkImage.innerHTML = ("<img src='" + drinkImg + "'>");
+
+
+
+
+
+
         currentDiv.appendChild(drinkNameDiv);
         currentDiv.appendChild(drinkGlassDiv);
         currentDiv.appendChild(drinkIngList1);
@@ -83,11 +95,16 @@ function createDrinkDiv() {
         currentDiv.appendChild(drinkIngList4);
         currentDiv.appendChild(drinkIngList5);
         currentDiv.appendChild(drinkIngList6);
+        currentDiv.appendChild(drinkIngList7);
+        currentDiv.appendChild(drinkIngList8);
         drinkDis.appendChild(drinkInstList);
         drinkPicDiv.appendChild(drinkImage);
 
     });
+
 }
+
+
 
 $(".recipe-btn").on("click", function () {
     // var returnResultsNum = $("#exampleFormControlSelect1"); //on pause
@@ -147,3 +164,4 @@ $(".recipe-btn").on("click", function () {
 
 });
 $("#accordion").accordion();
+
