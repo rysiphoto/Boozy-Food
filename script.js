@@ -67,7 +67,11 @@ $(".recipe-btn").on("click", function(){
 	
 	var rapidKey = '6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659'
 	var queryUrl= `https://api.spoonacular.com/food/products/search?query=${userSearchTerm}&apiKey=${rapidKey}`
-	  
+	 $('#firstContent').empty()
+	 $('#secondContent').empty()
+	 $('#thirdContent').empty()
+	 $('#fourthContent').empty()
+	 $('#fithContent').empty()
 	var settings = {
 		"async": true,
 		"crossDomain": true,
@@ -83,11 +87,35 @@ $(".recipe-btn").on("click", function(){
 			// console.log(returnResultsNum);
 	
 			// var newDiv = $("<div>");
+			
 			// var title = $("<h1>").text(JSON.stringify(response.docs[0].abstract));
-			document.getElementById("recipeHere").innerHTML = response[0].title;
+			for(var i = 0;i<5;i++)
+			switch(i) {
+				case 0:
+					$( "#firstHeader" ).text(response[i].title)
+					$("#firstContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+				  break;
+				case 1:
+					$( "#secondHeader" ).text(response[i].title)
+					$("#secondContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+				  break;
+				case 2:
+					$( "#thirdHeader" ).text(response[i].title)
+					$("#thirdContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+				  break;
+				case 3:
+					$( "#forthHeader" ).text(response[i].title)
+					$("#forthContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)	
+				break;
+				default:
+					$( "#fithHeader" ).text(response[i].title)
+					$("#fithContent").append(`<p><img src="${response[i].image}" alt="${response[i].title}"></p>`)
+				  // code block
+			  }
+			
+			//document.getElementById("recipeHere").innerHTML = response[0].title;
 		});
 		
 		
 	});
-	 
-
+	 $( "#accordion" ).accordion();
