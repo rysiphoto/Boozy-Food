@@ -10,20 +10,27 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <!-- <link rel="stylesheet" href="debug.css"> -->
     <link rel="stylesheet" href="style.css">
-
+    <link href="jquery-ui.css" rel="stylesheet">
+    <style>
+    
+    .fakewindowcontain .ui-widget-overlay {
+      position: absolute;
+    }
+    
+    </style>
 </head>
 
 <body>
-  <script  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  
     <div class="hero">
         <p class="center">
-            Placeholder
+           placeholder
         </p>
     </div>
 
     <section class="section is-paddingless-horizontal">
         <div class="tile is-ancestor">
-            <div class="tile is-vertical is-8">
+            <div class="tile is-vertical ">
               <div class="tile">
                 <div class="tile is-parent is-vertical">
                   <article class="tile is-child notification is-primary">
@@ -47,36 +54,47 @@
 
                   </article>
                 </div>
-                <div class="tile is-parent">
+                <div class="tile is-parent is-7">
                   <article class="tile is-child notification is-info">
-                    <p class="title">Middle tile</p>
-                    <p class="subtitle">With an image</p>
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/640x480.png">
-                    </figure>
+                    <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/QZd5h3KVXyg?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- <h2 class="demoHeaders">Accordion</h2> -->
+                   
+                    <!-- <div id="accordion">
+                      <h3 id="firstHeader"></h3>
+                      
+                      <div id="firstContent">
+                        <img src="https://spoonacular.com/recipeImages/967526-312x231.jpg" alt="panfriedporkchops">
+                      </div>
+                      <h3 id="secondHeader"></h3>
+                      <div id="secondContent">.</div>
+                      <h3 id="thirdHeader"></h3>
+                      <div id="thirdContent">.</div>
+                      <h3 id="forthHeader"></h3>
+                      <div id="forthContent">Phasellus mattis tincidunt nibh.</div>
+                      <h3 id="fithHeader"></h3>
+                      <div id="fithContent">Phasellus mattis tincidunt nibh.</div>
+                    </div> -->
+                    
+                    <div class="drinks is-child" id="drinksDiv">Test</div>
                   </article>
-                  <div class="drinks is-child" id="drinksDiv">Test</div>
+                
                 </div>
-              </div>
-
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification is-success">
-                <div class="content">
-                            <!-- <p class="title">Tall tile</p>
-                            <p class="subtitle">With even more content</p> -->
+            
+            <div class="tile is-parent is-vertical" >
+              <article class="tile is-child notification is-primary" style="background-color: white; color:black">
+              
                   <div class="content">
-                    <figure class="image ">
-                      <<img src="images/cheers.png" style="width: 200px; height:200px;">
+                    <figure class="image " >
+                      <img src="images/cheers.png" >
                       <p>Baby Yoda Vodka</p>
                     </figure>
                    
                     <!-- Content -->
                   </div>
-                </div>
+               
                 <div class="content">
                   <figure class="image ">
-                    <img src="images/corona-beer.jpg" style="width: 200px; height:200px;">
+                    <img src="images/corona-beer.jpg" >
                     <p>Stay calm and enjoy a Corona beer</p>
                   </figure>
                  
@@ -84,7 +102,7 @@
                 </div>
                 <div class="content">
                   <figure class="image ">
-                    <img src="images/You won't believe.png" style="width: 200px; height:200px;">
+                    <img src="images/You won't believe.png" >
                     <p> Number 20 is UNBELIEVABLE!</p>
                   </figure>
                   <!-- Content -->
@@ -99,21 +117,15 @@
         </div>
 
       </div>
-      <div class="tile is-parent">
-        <article class="tile is-child notification is-success">
-          <div class="content">
-            <p class="title">Tall tile</p>
-            <p class="subtitle">With even more content</p>
-            <div class="content">
-              <!-- Content -->
-            </div>
-          </div>
-        </article>
-      </div>
+     
     </div>
   </section>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="script.js"></script>
-</body>
+  
+  <script  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="script.js"></script>
+
+</body> 
 
 </html>
