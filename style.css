@@ -59,6 +59,7 @@
 
 body {
     background-color:	#982121 ;
+    font-family: 'Lora', serif;
 }
 
 .is-vertical {
@@ -75,4 +76,8 @@ body {
     border-color: #792121;
     color: hsl(48, 100%, 67%);
     ;
+}
+
+.hero { 
+    padding-top: 15px;
 }
