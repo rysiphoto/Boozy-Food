@@ -11,7 +11,6 @@ function init() {
 }
 
 var searchDrink = "";
-
 function createDrinkDiv() {
     $("#drinksDiv").empty();
     $("#drinkPicDiv").empty();
@@ -27,7 +26,6 @@ function createDrinkDiv() {
         var drinkInst = response.drinks[0].strInstructions;
         var drinkImg = response.drinks[0].strDrinkThumb
         var drinkGlass = response.drinks[0].strGlass;
-
         if (response.drinks[0].strIngredient1 !== null) {
             var drinkIng1 = response.drinks[0].strIngredient1;
         }
@@ -52,7 +50,6 @@ function createDrinkDiv() {
         if (response.drinks[0].strIngredient8 !== null) {
             var drinkIng8 = response.drinks[0].strIngredient8;
         }
-
 
         var drinkMeasure1 = response.drinks[0].strMeasure1;
         var drinkMeasure2 = response.drinks[0].strMeasure2;
@@ -170,11 +167,7 @@ function createDrinkDiv() {
     });
 
 }
-
-
 $(".recipe-btn").on("click", function () {
-
-    // var returnResultsNum = $("#exampleFormControlSelect1"); //on pause
     var userSearchTerm = $("#searchBar").val();
     getRecipe(userSearchTerm)
 });
@@ -187,21 +180,32 @@ function getRecipe(searchTerm) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=${userSearchTerm}`,
+        "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=${searchTerm}`,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659"
         }
-    }   //first call
-    $.ajax(settings).then(function (response) {
+    }
 
+
+
+    //first call
+    $.ajax(settings).then(function (response) {
         for (var i = 0; i < 5; i++) {
+            console.log(response);
+            if (response.length == 0) {
+                var h2 = $(`<h3>"Sorry, there are no results that match your request"</h3>`);
+                var content2 = $(`<div><img src="images/yoda_try_again.jpg"></div>`);
+                $("#accordion").append(h2, content2);
+                $("#accordion").accordion("refresh");
+                return
+            } console.log(i)
             var recipeID = response[i].id
+
             var newSettings = {
                 "async": true,
                 "crossDomain": true,
-                // https://cors-anywhere.herokuapp.com/
                 "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information?includeNutrition=false`,
                 "method": "GET",
                 "headers": {
@@ -211,9 +215,12 @@ function getRecipe(searchTerm) {
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
                 }
             }
+
             //second call
             $.ajax(newSettings).then(function (results) {
+                console.log(results.analyzedInstructions.length);
 
+                //if results.analyzedInstructions != null run this
 
                 var h3 = $(`<h3>${results.title}</h3>`)
                 var content = $('<div>')
@@ -225,14 +232,37 @@ function getRecipe(searchTerm) {
                 }
                 $("#accordion").append(h3, content)
                 $("#accordion").accordion("refresh");
+            }
 
 
+                //else set the picture in the accordion
 
-            })
+            );
+
 
         }
+
     });
 
+    // }    else {
+    //                        var h2 = $(`<h3>"Sorry, there are no results that match your request"</h3>`);
+    //                        var content2 = $(`<div><img src="images/yoda_try_again.jpg"></div>`);
+    //                        $("#accordion").append(h2, content2);
+    //                        $("#accordion").accordion("refresh");
 
-});
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 $("#accordion").accordion();
