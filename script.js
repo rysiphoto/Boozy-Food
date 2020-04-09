@@ -26,14 +26,22 @@ function createDrinkDiv() {
         var drinkInst = response.drinks[0].strInstructions;
         var drinkImg = response.drinks[0].strDrinkThumb
         var drinkGlass = response.drinks[0].strGlass;
-        var drinkIng1 = response.drinks[0].strIngredient1;
-        var drinkIng2 = response.drinks[0].strIngredient2;
-        var drinkIng3 = response.drinks[0].strIngredient3;
-        var drinkIng4 = response.drinks[0].strIngredient4;
-        var drinkIng5 = response.drinks[0].strIngredient5;
-        var drinkIng6 = response.drinks[0].strIngredient6;
-        var drinkIng7 = response.drinks[0].strIngredient7;
-        var drinkIng8 = response.drinks[0].strIngredient8;
+        if( response.drinks[0].strIngredient1 !== null){
+        var drinkIng1 = response.drinks[0].strIngredient1;}
+        if( response.drinks[0].strIngredient2 !== null){
+        var drinkIng2 = response.drinks[0].strIngredient2;}
+        if( response.drinks[0].strIngredient3 !== null){
+        var drinkIng3 = response.drinks[0].strIngredient3;}
+        if( response.drinks[0].strIngredient4 !== null){
+        var drinkIng4 = response.drinks[0].strIngredient4;}
+        if( response.drinks[0].strIngredient5 !== null){
+        var drinkIng5 = response.drinks[0].strIngredient5;}
+        if( response.drinks[0].strIngredient6 !== null){
+        var drinkIng6 = response.drinks[0].strIngredient6;}
+        if( response.drinks[0].strIngredient7 !== null){
+        var drinkIng7 = response.drinks[0].strIngredient7;}
+        if( response.drinks[0].strIngredient8 !== null){
+        var drinkIng8 = response.drinks[0].strIngredient8;}
 
         var drinkMeasure1 = response.drinks[0].strMeasure1;
         var drinkMeasure2 = response.drinks[0].strMeasure2;
@@ -61,15 +69,22 @@ function createDrinkDiv() {
 
 
         // Create For Loops for Ingredients if possible
-
-        var drinkIngList1 = document.createElement("li");
-        var drinkIngList2 = document.createElement("li");
-        var drinkIngList3 = document.createElement("li");
-        var drinkIngList4 = document.createElement("li");
-        var drinkIngList5 = document.createElement("li");
-        var drinkIngList6 = document.createElement("li");
-        var drinkIngList7 = document.createElement("li");
-        var drinkIngList8 = document.createElement("li");
+        if( response.drinks[0].strIngredient1 !== null){
+        var drinkIngList1 = document.createElement("li");}
+        if( response.drinks[0].strIngredient2 !== null){
+        var drinkIngList2 = document.createElement("li");}
+        if( response.drinks[0].strIngredient3 !== null){
+        var drinkIngList3 = document.createElement("li");}
+        if( response.drinks[0].strIngredient4 !== null){
+        var drinkIngList4 = document.createElement("li");}
+        if( response.drinks[0].strIngredient5 !== null){
+        var drinkIngList5 = document.createElement("li");}
+        if( response.drinks[0].strIngredient6 !== null){
+        var drinkIngList6 = document.createElement("li");}
+        if( response.drinks[0].strIngredient7 !== null){
+        var drinkIngList7 = document.createElement("li");}
+        if( response.drinks[0].strIngredient8 !== null){
+        var drinkIngList8 = document.createElement("li");}
         var drinkInstList = document.createElement("p");
         var drinkImage = document.createElement("p");
         drinkImage.id = "drinkPic";
@@ -80,14 +95,22 @@ function createDrinkDiv() {
         // console.log("final ingredients array:", ingredients);
         drinkNameDiv.textContent = response.drinks[0].strDrink;
         drinkGlassDiv.textContent = ("Glass: " + drinkGlass);
-        drinkIngList1.textContent = (drinkIng1 + ": " + drinkMeasure1);
-        drinkIngList2.textContent = (drinkIng2 + ": " + drinkMeasure2);
-        drinkIngList3.textContent = (drinkIng3 + ": " + drinkMeasure3);
-        drinkIngList4.textContent = (drinkIng4 + ": " + drinkMeasure4);
-        drinkIngList5.textContent = (drinkIng5 + ": " + drinkMeasure5);
-        drinkIngList6.textContent = (drinkIng6 + ": " + drinkMeasure6);
-        drinkIngList7.textContent = (drinkIng7 + ": " + drinkMeasure7);
-        drinkIngList8.textContent = (drinkIng8 + ": " + drinkMeasure8);
+        if( response.drinks[0].strIngredient1 !== null){
+        drinkIngList1.textContent = (drinkIng1 + ": " + drinkMeasure1);}
+        if( response.drinks[0].strIngredient2 !== null){
+        drinkIngList2.textContent = (drinkIng2 + ": " + drinkMeasure2);}
+        if( response.drinks[0].strIngredient3 !== null){
+        drinkIngList3.textContent = (drinkIng3 + ": " + drinkMeasure3);}
+        if( response.drinks[0].strIngredient4 !== null){
+        drinkIngList4.textContent = (drinkIng4 + ": " + drinkMeasure4);}
+        if( response.drinks[0].strIngredient5 !== null){
+        drinkIngList5.textContent = (drinkIng5 + ": " + drinkMeasure5);}
+        if( response.drinks[0].strIngredient6 !== null){
+        drinkIngList6.textContent = (drinkIng6 + ": " + drinkMeasure6);}
+        if( response.drinks[0].strIngredient7 !== null){
+        drinkIngList7.textContent = (drinkIng7 + ": " + drinkMeasure7);}
+        if( response.drinks[0].strIngredient8 !== null){
+        drinkIngList8.textContent = (drinkIng8 + ": " + drinkMeasure8);}
         drinkInstList.textContent = drinkInst;
         drinkImage.innerHTML = ("<img src='" + drinkImg + "'>");
 
@@ -95,17 +118,25 @@ function createDrinkDiv() {
 
 
 
-
+        
         currentDiv.appendChild(drinkNameDiv);
         currentDiv.appendChild(drinkGlassDiv);
-        currentDiv.appendChild(drinkIngList1);
-        currentDiv.appendChild(drinkIngList2);
-        currentDiv.appendChild(drinkIngList3);
-        currentDiv.appendChild(drinkIngList4);
-        currentDiv.appendChild(drinkIngList5);
-        currentDiv.appendChild(drinkIngList6);
-        currentDiv.appendChild(drinkIngList7);
-        currentDiv.appendChild(drinkIngList8);
+        if( response.drinks[0].strIngredient1 !== null){
+        currentDiv.appendChild(drinkIngList1);}
+        if( response.drinks[0].strIngredient2 !== null){
+        currentDiv.appendChild(drinkIngList2);}
+        if( response.drinks[0].strIngredient3 !== null){
+        currentDiv.appendChild(drinkIngList3);}
+        if( response.drinks[0].strIngredient4 !== null){
+        currentDiv.appendChild(drinkIngList4);}
+        if( response.drinks[0].strIngredient5 !== null){
+        currentDiv.appendChild(drinkIngList5);}
+        if( response.drinks[0].strIngredient6 !== null){
+        currentDiv.appendChild(drinkIngList6);}
+        if( response.drinks[0].strIngredient7 !== null){
+        currentDiv.appendChild(drinkIngList7);}
+        if( response.drinks[0].strIngredient8 !== null){
+        currentDiv.appendChild(drinkIngList8);}
         drinkDis.appendChild(drinkInstList);
         drinkPicDiv.appendChild(drinkImage);
 
@@ -152,7 +183,7 @@ var rapidKey = '6231706c36msh0aa2e9f7a2ee4f409cae6e1dc3cdad9c4d43c424ff96c50p195
             }
             //second call
             $.ajax(newSettings).then(function (results) {
-                console.log(results)
+                
 
                 var h3 = $(`<h3>${results.title}</h3>`)
                 var content = $('<div>')
