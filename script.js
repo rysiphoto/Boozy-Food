@@ -66,15 +66,6 @@ function createDrinkDiv() {
         var drinkGlassDiv = document.createElement("h3");
         var drinkDis = document.getElementById("drinkDisc");
 
-        // var ingredientNum = 1;
-        // var ingredients = []; // array to push ingredients to once you pull them from the object; an array will be easier to work with in your code
-
-        // while (response.drinks[0]["strIngredient" + ingredientNum]) {
-        //     ingredients.push(response.drinks[0]["strIngredient" + ingredientNum]);
-        //     ingredientNum++;
-
-        // }
-
 
         // Create For Loops for Ingredients if possible
         if (response.drinks[0].strIngredient1 !== null) {
@@ -195,10 +186,21 @@ function getRecipe(searchTerm) {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "d1d0cc0aa9msh27c01f986905339p1b0d72jsn919cceaeb7ba"
         }
-    }   //first call
-    $.ajax(settings).then(function (response) {
+    }
 
+
+
+    //first call
+    $.ajax(settings).then(function (response) {
         for (var i = 0; i < 5; i++) {
+            console.log(response);
+            if (response.length == 0) {
+                var h2 = $(`<h3>"Sorry, there are no results that match your request"</h3>`);
+                var content2 = $(`<div><img src="images/yoda_try_again.jpg"></div>`);
+                $("#accordion").append(h2, content2);
+                $("#accordion").accordion("refresh");
+                return
+            } console.log(i)
             var recipeID = response[i].id
 
             var newSettings = {
@@ -213,6 +215,7 @@ function getRecipe(searchTerm) {
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
                 }
             }
+
             //second call
             $.ajax(newSettings).then(function (results) {
                 var h3 = $(`<h3>${results.title}</h3>`)

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>BoozyFood</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -16,17 +16,23 @@
       position: absolute;
     }
   </style>
+          <link rel="icon"
+          type="image/png"
+          href="images/favicon.jfif">
 </head>
 
 <body>
 
   <div class="hero center has-background-warning">
-   
-      <h1 class="is-size-1">
-      BoozyFood
+
+
+    <h1 class="is-size-1">
+      <BR>
+      <img src="images/bandf_logo.png" height="100px" width="180px">
     </h1>
     <p class="is-size-3">
-      The stuff you make at home during quaratine. 
+      Create your perfect quarantazine without leaving home!
+
     </p>
   </div>
 
@@ -36,9 +42,9 @@
         <div class="tile">
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-primary" id="foodTile">
-              <p class="title">Generate a Recipe Based on an Ingredient you have at home!</p>
+              <p class="title">Generate a recipe based on the ingredients you have at home!</p>
               <p>
-                <input id="searchBar" class="input is-rounded " type="text" placeholder="Ingredient here" >
+                <input id="searchBar" class="input is-rounded " type="text" placeholder="Ingredient here">
               </p>
               <p id="recipeHere"> </p>
               <br>
@@ -46,7 +52,7 @@
                 <button type="button" class="recipe-btn button is-secondary">Generate Recipe</button>
               </p>
             </article>
-            <article class="tile is-child notification has-background-warning">
+            <article class="tile is-child notification ">
               <p class="title">Random Drink Button</p>
               <p class="subtitle">Click to create your concoction</p>
               <p class="randDrinkBtn">
