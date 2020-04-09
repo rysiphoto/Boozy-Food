@@ -163,12 +163,23 @@ var rapidKey = '6231706c36msh0aa2e9f7a2ee4f409cae6e1dc3cdad9c4d43c424ff96c50p195
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key": "6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659"
         }
-    }   //first call
+    } 
+    
+  
+         
+    //first call
     $.ajax(settings).then(function (response) {
-
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 5; i++) {   
+console.log(response);
+            if (response.length == 0){
+                var h2 = $(`<h3>"Sorry, there are no results that match your request"</h3>`);
+                                       var content2 = $(`<div><img src="images/yoda_try_again.jpg"></div>`);
+                                       $("#accordion").append(h2, content2);
+                                       $("#accordion").accordion("refresh");
+                                       return 
+            }              console.log(i)    
             var recipeID = response[i].id
-          
+            
             var newSettings = {
                 "async": true,
                 "crossDomain": true,
@@ -181,33 +192,43 @@ var rapidKey = '6231706c36msh0aa2e9f7a2ee4f409cae6e1dc3cdad9c4d43c424ff96c50p195
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
                 }
             }
+        
             //second call
             $.ajax(newSettings).then(function (results) {
+                console.log(results.analyzedInstructions.length);
                 
-
-                var h3 = $(`<h3>${results.title}</h3>`)
-                var content = $('<div>')
-                content.append(`<img src="${results.image}" alt="${results.title}">`)
-                var content = $(`<div><img src="${results.image}" alt="${results.title}"><p><strong>STEPS:</strong></p></div>`)
-                for (var i=0;i<results.analyzedInstructions[0].steps.length;i++){
-                    
-                    content.append(`<p><strong>${results.analyzedInstructions[0].steps[i].number}</strong> ${results.analyzedInstructions[0].steps[i].step}`)
-                }
-                $("#accordion").append(h3, content)
-                $("#accordion").accordion("refresh");
-
+                //if results.analyzedInstructions != null run this
                
+                    var h3 = $(`<h3>${results.title}</h3>`)
+                    var content = $('<div>')
+                    content.append(`<img src="${results.image}" alt="${results.title}">`)
+                    var content = $(`<div><img src="${results.image}" alt="${results.title}"><p><strong>STEPS:</strong></p></div>`)
+                    for (var i=0;i<results.analyzedInstructions[0].steps.length;i++){
+                        
+                        content.append(`<p><strong>${results.analyzedInstructions[0].steps[i].number}</strong> ${results.analyzedInstructions[0].steps[i].step}`)
+                    }
+                    $("#accordion").append(h3, content)
+                    $("#accordion").accordion("refresh");
+                    }
+                  
+                 
+                //else set the picture in the accordion
+               
+            );
 
-            })
 
         }
        
     });
 
-}
+// }    else {
+//                        var h2 = $(`<h3>"Sorry, there are no results that match your request"</h3>`);
+//                        var content2 = $(`<div><img src="images/yoda_try_again.jpg"></div>`);
+//                        $("#accordion").append(h2, content2);
+//                        $("#accordion").accordion("refresh");
 
 
-
+    }
 
 
 
