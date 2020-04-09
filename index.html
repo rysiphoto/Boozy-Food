@@ -20,9 +20,13 @@
 
 <body>
 
-  <div class="hero">
-    <p class="center">
-      placeholder
+  <div class="hero center has-background-warning">
+   
+      <h1 class="is-size-1">
+      BoozyFood
+    </h1>
+    <p class="is-size-3">
+      The stuff you make at home during quaratine. 
     </p>
   </div>
 
@@ -31,22 +35,22 @@
       <div class="tile is-vertical ">
         <div class="tile">
           <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-primary">
+            <article class="tile is-child notification is-primary" id="foodTile">
               <p class="title">Generate a Recipe Based on an Ingredient you have at home!</p>
               <p>
-                <input id="searchBar" class="input is-rounded" type="text" placeholder="Ingredient here">
+                <input id="searchBar" class="input is-rounded " type="text" placeholder="Ingredient here" >
               </p>
               <p id="recipeHere"> </p>
               <br>
               <p class="subtitle">
-                <button type="button" class="recipe-btn">Generate Recipe</button>
+                <button type="button" class="recipe-btn button is-secondary">Generate Recipe</button>
               </p>
             </article>
-            <article class="tile is-child notification is-warning">
+            <article class="tile is-child notification has-background-warning">
               <p class="title">Random Drink Button</p>
               <p class="subtitle">Click to create your concoction</p>
               <p class="randDrinkBtn">
-                <button id="randDrink" class="button is-primary" onclick="createDrinkDiv()">Random Drink!</button>
+                <button id="randDrink" class="button is-secondary" onclick="createDrinkDiv()">Random Drink!</button>
 
               </p>
               <div class="tile is-parent is-vertical" id="contentColumn">
