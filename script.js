@@ -173,7 +173,7 @@ $(".recipe-btn").on("click", function () {
 });
 
 function getRecipe(searchTerm) {
-    var rapidKey = '6231706c36msh0aa2e9f7a2ee4f409cae6e1dc3cdad9c4d43c424ff96c50p195ed0jsn6762f2140659'
+    var rapidKey = 'd1d0cc0aa9msh27c01f986905339p1b0d72jsn919cceaeb7ba'
     var queryUrl = `https://api.spoonacular.com/food/products/search?query=${searchTerm}&apiKey=${rapidKey}`
     $('#accordion').empty()
 
@@ -184,7 +184,7 @@ function getRecipe(searchTerm) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": "6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659"
+            "x-rapidapi-key": "d1d0cc0aa9msh27c01f986905339p1b0d72jsn919cceaeb7ba"
         }
     }
 
@@ -210,7 +210,7 @@ function getRecipe(searchTerm) {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "6231706c36msh4d43c424ff96c50p195ed0jsn6762f2140659",
+                    "x-rapidapi-key": "d1d0cc0aa9msh27c01f986905339p1b0d72jsn919cceaeb7ba",
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
                 }
@@ -218,51 +218,45 @@ function getRecipe(searchTerm) {
 
             //second call
             $.ajax(newSettings).then(function (results) {
-                console.log(results.analyzedInstructions.length);
-
-                //if results.analyzedInstructions != null run this
-
                 var h3 = $(`<h3>${results.title}</h3>`)
                 var content = $('<div>')
                 content.append(`<img src="${results.image}" alt="${results.title}">`)
-                var content = $(`<div><img src="${results.image}" alt="${results.title}"><p><strong>STEPS:</strong></p></div>`)
+                var content = $(`<div><img src="${results.image}" alt="${results.title}"></div>`)
+                // get the ingredients
+                var inDiv = $("<div>")
+                $(inDiv).addClass("columns")
+
+                for (var i = 0; i < results.extendedIngredients.length; i++) {
+                    inDiv.append(`<div class="column">
+                       
+                       <p><center>${results.extendedIngredients[i].amount} ${results.extendedIngredients[i].unit}</p>
+                        <img src="https://spoonacular.com/cdn/ingredients_100x100/${results.extendedIngredients[i].image}"</p>
+                        <p>${results.extendedIngredients[i].name}</p>
+                    </div>`)
+                    content.append(inDiv)
+                    console.log(inDiv)
+                }
+
+
+                //get the instructions
+                content.append(`<p><strong>STEPS:</strong></p>`)
                 for (var i = 0; i < results.analyzedInstructions[0].steps.length; i++) {
+
 
                     content.append(`<p><strong>${results.analyzedInstructions[0].steps[i].number}</strong> ${results.analyzedInstructions[0].steps[i].step}`)
                 }
+
                 $("#accordion").append(h3, content)
                 $("#accordion").accordion("refresh");
-            }
 
 
-                //else set the picture in the accordion
 
-            );
-
+            })
 
         }
 
     });
 
-    // }    else {
-    //                        var h2 = $(`<h3>"Sorry, there are no results that match your request"</h3>`);
-    //                        var content2 = $(`<div><img src="images/yoda_try_again.jpg"></div>`);
-    //                        $("#accordion").append(h2, content2);
-    //                        $("#accordion").accordion("refresh");
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 $("#accordion").accordion();
