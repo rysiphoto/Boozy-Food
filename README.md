@@ -9,7 +9,7 @@
 # **Boozy Food**
 
 ### **Project Description:**
-##### This site was inspired by not having easy access to a grocery store while COVID-19 was disrupting the supply chain in grocery stores. The Spoontacular API would generate several recipies based on up to three food items you have at your disposal. On the left hand side, we added a random drink gernerator to give you inspiration for a drink of your choice you'd like to make. The color palette consists of warm tones.
+##### This site was inspired by not having easy access to a grocery store while COVID-19 was disrupting the supply chain in grocery stores. The Spoontacular API would generate several recipes based on up to three food items you have at your disposal. On the left-hand side, we added a random drink generator to give you inspiration for a drink of your choice you'd like to make. The color palette consists of warm tones.
 ---
 ### **GitHub Address:**
 [Boozy Food](https://github.com/rysiphoto/Boozy-Food)
