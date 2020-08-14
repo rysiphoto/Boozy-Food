@@ -21,6 +21,9 @@
 ### **Dependencies**
 ##### npm i
 ---
+### **Technologies Used**
+##### HTML, JavaScript, CSS, Bulma UI, External APIs, jQuery
+---
 ### **Test Run Commands**
 ##### node index
 ---
